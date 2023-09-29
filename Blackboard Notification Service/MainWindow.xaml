@@ -16,10 +16,10 @@
                 </LinearGradientBrush>
             </Border.Background>
             <StackPanel Orientation="Horizontal" Margin="12">
-                <Viewbox>
+                <Viewbox Margin="0,8,0,0">
                     <Label Content="&#xE7E7;" FontFamily="#Segoe MDL2 Assets" Foreground="White"/>
-                </Viewbox>
-                <StackPanel>
+                </Viewbox>                
+                <StackPanel VerticalAlignment="Center">
                     <TextBlock Name="TextBlockTitle" Text="课堂结束" Foreground="White" FontSize="64" FontFamily="Assets/#Misans Medium"/>
                     <TextBlock Name="TextBlockSubtitle" Text="下一节: 数学课" Foreground="White" FontSize="20" Opacity="0.8" FontFamily="Assets/#Misans Normal"/>
                 </StackPanel>
