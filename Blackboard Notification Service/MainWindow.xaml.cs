@@ -54,7 +54,10 @@ namespace Blackboard_Notification_Service
             TextBlockTitle.Text = title;
             TextBlockSubtitle.Text = subtitle;
 
-
+            if (subtitle == "")
+            {
+                TextBlockSubtitle.Visibility = Visibility.Collapsed;
+            }
 
             if (isTopNotification)
             {
