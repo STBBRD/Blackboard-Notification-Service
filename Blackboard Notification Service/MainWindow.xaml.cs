@@ -69,10 +69,10 @@ namespace Blackboard_Notification_Service
 
         private async void DelayExit(double delayTime)
         {
-            await Task.Delay(TimeSpan.FromSeconds(delayTime - 0.4));
+            await Task.Delay(TimeSpan.FromSeconds(delayTime + 0.75));
             StartTopDisappearAnimation();
 
-            await Task.Delay(TimeSpan.FromSeconds(0.4));
+            await Task.Delay(TimeSpan.FromSeconds(0.75));
             Application.Current.Dispatcher.Invoke(() =>
             {
                 Application.Current.Shutdown(); // 关闭应用程序
@@ -85,16 +85,16 @@ namespace Blackboard_Notification_Service
             {
                 From = new Thickness(0, -150, 0, 0),
                 To = new Thickness(0),
-                Duration = new Duration(TimeSpan.FromMilliseconds(400)),
-                EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseOut }
+                Duration = new Duration(TimeSpan.FromMilliseconds(750)),
+                EasingFunction = new ExponentialEase() { EasingMode = EasingMode.EaseOut, Exponent = 4 }
             };
 
             var opacityAnimation = new DoubleAnimation()
             {
-                From = 0.2,
+                From = 0.75,
                 To = 1,
-                Duration = new Duration(TimeSpan.FromMilliseconds(400)),
-                EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseOut }
+                Duration = new Duration(TimeSpan.FromMilliseconds(750)),
+                EasingFunction = new ExponentialEase() { EasingMode = EasingMode.EaseOut, Exponent = 4 }
             };
 
             BorderTopNotification.BeginAnimation(OpacityProperty, opacityAnimation);
@@ -107,16 +107,16 @@ namespace Blackboard_Notification_Service
             {
                 From = new Thickness(0),
                 To = new Thickness(0, -150, 0, 0),
-                Duration = new Duration(TimeSpan.FromMilliseconds(400)),
-                EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseOut }
+                Duration = new Duration(TimeSpan.FromMilliseconds(750)),
+                EasingFunction = new ExponentialEase() { EasingMode = EasingMode.EaseIn, Exponent = 4 }
             };
 
             var opacityAnimation = new DoubleAnimation()
             {
                 From = 1,
-                To = 0.2,
-                Duration = new Duration(TimeSpan.FromMilliseconds(400)),
-                EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseOut }
+                To = 0.75,
+                Duration = new Duration(TimeSpan.FromMilliseconds(750)),
+                EasingFunction = new ExponentialEase() { EasingMode = EasingMode.EaseIn, Exponent = 4 }
             };
 
             BorderTopNotification.BeginAnimation(OpacityProperty, opacityAnimation);

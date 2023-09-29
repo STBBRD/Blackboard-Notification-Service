@@ -8,14 +8,20 @@
         Title="黑板通知 Blackboard Notification" Height="1080" Width="1920" AllowsTransparency="True" ShowInTaskbar="False"
         WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None" Background="Transparent" Topmost="True">
     <Grid>
-        <Border Name="BorderTopNotification" Background="#0078d4" Height="150" VerticalAlignment="Top">
+        <Border Name="BorderTopNotification" Height="150" VerticalAlignment="Top">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
+                    <GradientStop Color="#0e9fff"/>
+                    <GradientStop Color="#72eeff" Offset="1.5"/>
+                </LinearGradientBrush>
+            </Border.Background>
             <StackPanel Orientation="Horizontal" Margin="12">
                 <Viewbox>
                     <Label Content="&#xE7E7;" FontFamily="#Segoe MDL2 Assets" Foreground="White"/>
                 </Viewbox>
                 <StackPanel>
-                    <TextBlock Name="TextBlockTitle" Text="课堂结束" Foreground="White" FontSize="64"/>
-                    <TextBlock Name="TextBlockSubtitle" Text="下一节: 数学课" Foreground="White" FontSize="20" Opacity="0.8"/>
+                    <TextBlock Name="TextBlockTitle" Text="课堂结束" Foreground="White" FontSize="64" FontFamily="Assets/#Misans Medium"/>
+                    <TextBlock Name="TextBlockSubtitle" Text="下一节: 数学课" Foreground="White" FontSize="20" Opacity="0.8" FontFamily="Assets/#Misans Normal"/>
                 </StackPanel>
             </StackPanel>
         </Border>
@@ -24,6 +30,6 @@
             <Border Name="BorderBottomNotification" Background="LightGray" Opacity="0.85" Height="50" CornerRadius="25">
                 <TextBlock Name="TextBlockNotice" Text="{Binding Text, ElementName=TextBlockTitle}" Margin="20,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
             </Border>
-        </Grid>        
+        </Grid>
     </Grid>
 </Window>
