@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,11 +28,6 @@ namespace Blackboard_Notification_Service
 
             BorderTopNotification.Visibility = Visibility.Collapsed;
             GridBottomNotification.Visibility = Visibility.Collapsed;
-
-            string title = "无启动参数";
-            string subtitle = "无启动参数";
-            double showTime = 2;
-            bool isTopNotification = true;
 
             if (App.StartArgs != null)
             {
@@ -70,16 +66,18 @@ namespace Blackboard_Notification_Service
             DelayExit(showTime);
         }
 
+        string title = "无启动参数";
+        string subtitle = "无启动参数";
+        double showTime = 2;
+        bool isTopNotification = true;
+
         private async void DelayExit(double delayTime)
         {
             await Task.Delay(TimeSpan.FromSeconds(delayTime + 0.75));
             StartTopDisappearAnimation();
 
             await Task.Delay(TimeSpan.FromSeconds(0.75));
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                Application.Current.Shutdown(); // 关闭应用程序
-            });
+            Close();
         }
 
         private void StartTopAppearAnimation()
@@ -124,6 +122,21 @@ namespace Blackboard_Notification_Service
 
             BorderTopNotification.BeginAnimation(OpacityProperty, opacityAnimation);
             BorderTopNotification.BeginAnimation(MarginProperty, disappearAnimation);
+        }
+
+        private async void WindowNotification_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (isTopNotification)
+            {
+                StartTopDisappearAnimation();
+
+                await Task.Delay(TimeSpan.FromSeconds(0.75));
+                Close();
+            }
+            else
+            {
+                Close();
+            }
         }
     }
 }

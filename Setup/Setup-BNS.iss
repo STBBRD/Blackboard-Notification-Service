@@ -33,12 +33,11 @@ WizardStyle=modern
 
 [Languages]
 Name: "chinesesimp"; MessagesFile: "compiler:Default.isl"
-Name: "english"; MessagesFile: "compiler:Languages\English.isl"
 
 [Files]
 Source: "D:\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 ; 注意: 不要在任何共享系统文件上使用“Flags: ignoreversion”
 
 [Icons]
-Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
+; Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
 

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Blackboard_Notification_Service"
         mc:Ignorable="d"
         Title="黑板通知 Blackboard Notification" Height="1080" Width="1920" AllowsTransparency="True" ShowInTaskbar="False"
-        WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None" Background="Transparent" Topmost="True">
+        WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None" Background="Transparent" Topmost="True" MouseDown="WindowNotification_MouseDown">
     <Grid>
         <Border Name="BorderTopNotification" Height="150" VerticalAlignment="Top">
             <Border.Background>
@@ -20,8 +20,8 @@
                     <Label Content="&#xE7E7;" FontFamily="#Segoe MDL2 Assets" Foreground="White"/>
                 </Viewbox>
                 <StackPanel VerticalAlignment="Center">
-                    <TextBlock Name="TextBlockTitle" Text="课堂结束" Foreground="White" FontSize="64" FontFamily="Assets/#Misans Medium"/>
-                    <TextBlock Name="TextBlockSubtitle" Text="下一节: 数学课" Foreground="White" FontSize="20" Opacity="0.8" FontFamily="Assets/#Misans Normal"/>
+                    <TextBlock Name="TextBlockTitle" Foreground="White" FontSize="64" FontFamily="Assets/#Misans Medium"/>
+                    <TextBlock Name="TextBlockSubtitle" Foreground="White" FontSize="20" Opacity="0.8" FontFamily="Assets/#Misans Normal"/>
                 </StackPanel>
             </StackPanel>
         </Border>
