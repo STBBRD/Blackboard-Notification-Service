@@ -2,7 +2,7 @@
 ; 有关创建 Inno Setup 脚本文件的详细资料请查阅帮助文档！
 
 #define MyAppName "ZongziTEK 黑板通知服务"
-#define MyAppVersion "1.0"
+#define MyAppVersion "1.1"
 #define MyAppPublisher "ZongziTEK"
 #define MyAppURL "https://github.com/STBBRD/Blackboard-Notification-Service/"
 #define MyAppExeName "bns.exe"
